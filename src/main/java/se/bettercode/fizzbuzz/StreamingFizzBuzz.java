@@ -1,8 +1,9 @@
 package se.bettercode.fizzbuzz;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class StreamingFizzBuzz {
 
@@ -10,18 +11,19 @@ public class StreamingFizzBuzz {
    * Each argument must be a integer
    */
   public static void main(String[] args) {
-    List<Integer> integers = new ArrayList<>();
-    for (String argument : args) {
-      integers.add(Integer.parseInt(argument));
-    }
-    fizzBuzz(integers);
+    final List<Integer> integers = Arrays.stream(args)
+        .map(Integer::parseInt)
+        .collect(Collectors.toList());
+    printFizzBuzz(integers);
   }
 
-  public static void fizzBuzz(List<Integer> integers) {
-    final String result = integers.stream()
-        .map(StreamingFizzBuzz::numberToFizzBuzz)
-        .collect(Collectors.joining("\n"));
-    System.out.println(result);
+  public static void printFizzBuzz(List<Integer> integers) {
+    System.out.println(fizzBuzz(integers).collect(Collectors.joining("\n")));
+  }
+
+  public static Stream<String> fizzBuzz(List<Integer> integers) {
+    return integers.stream()
+        .map(StreamingFizzBuzz::numberToFizzBuzz);
   }
 
   // TODO: Inline this in the stream?
