@@ -1,8 +1,6 @@
 package se.bettercode.fizzbuzz;
 
 import java.io.PrintStream;
-import java.util.function.IntConsumer;
-import java.util.stream.IntStream;
 
 /**
  * Classic FizzBuzz kata.
@@ -49,6 +47,7 @@ import java.util.stream.IntStream;
  * Buzz
  * ... etc up to 100
  */
+@SuppressWarnings("ALL")
 public class FizzBuzzApplication {
 
   public static void main(String[] args) {

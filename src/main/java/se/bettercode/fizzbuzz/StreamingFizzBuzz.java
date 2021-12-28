@@ -26,7 +26,6 @@ public class StreamingFizzBuzz {
         .map(StreamingFizzBuzz::numberToFizzBuzz);
   }
 
-  // TODO: Inline this in the stream?
   private static String numberToFizzBuzz(Integer i) {
     if (i % 3 == 0 && i % 5 == 0) {
       return "FizzBuzz";

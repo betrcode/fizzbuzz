@@ -15,9 +15,10 @@ public class AnotherFizzBuzz {
     IntStream.rangeClosed(1, 100).forEach(fizzBuzzConsumer);
   }
 
-  class FizzBuzzConsumer implements IntConsumer {
+  @SuppressWarnings("Duplicates")
+  static class FizzBuzzConsumer implements IntConsumer {
 
-    private PrintStream out;
+    private final PrintStream out;
 
     FizzBuzzConsumer(PrintStream out) {
       this.out = out;
